@@ -5,7 +5,7 @@ import { Calendar, CalendarHeartIcon, Clock } from 'lucide-react';
 const Hero = () => {
   return (
     <section
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center px-6 md:px-16"
+      className="pt-32 relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center px-6 md:px-16"
       style={{
         backgroundImage: "url('/assets/backgroundImage.jpg')",
         backgroundColor: "#030303", 
