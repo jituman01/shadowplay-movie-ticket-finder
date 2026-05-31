@@ -3,21 +3,39 @@ import React from 'react';
 import { Button } from '@heroui/react';
 import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 const RegisterPage = () => {
+  const router = useRouter();
+
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
     
     const formData = new FormData(e.currentTarget);
-    console.log(formData);
+    // console.log(formData);
 
     const registerData = Object.fromEntries(formData.entries())
-    console.log(registerData);
+    // console.log(registerData);
 
-  
+    const { data, error } = await authClient.signUp.email({
+      ...registerData,
+      
+    })
     
-    
+    if (error) {
+      console.log(error.message);
+      
+      toast.error('Registration Failed')
+      return;
+    }
+
+
+    router.push('/')
+
+
   }
     
 
