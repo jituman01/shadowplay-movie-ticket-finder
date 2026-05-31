@@ -1,3 +1,4 @@
+import ComingThisMonth from "@/components/ComingThisMonth";
 import Hero from "@/components/Hero";
 import NowStreaming from "@/components/NowStreaming";
 import TrailerSection from "@/components/TrailerSection";
@@ -8,7 +9,8 @@ export default function Home() {
     <div>
       <Hero/>
       <NowStreaming />
-      <TrailerSection/>
+      <TrailerSection />
+      <ComingThisMonth/>
    </div>
   );
 }
