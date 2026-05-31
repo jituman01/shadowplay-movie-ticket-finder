@@ -7,21 +7,15 @@ import toast from 'react-hot-toast';
 const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
-    // console.log(e.currentTarget);
+    console.log(e.currentTarget);
     
     const formData = new FormData(e.currentTarget);
-    // console.log(formData);
+    console.log(formData);
 
     const registerData = Object.fromEntries(formData.entries())
-    // console.log(registerData);
+    console.log(registerData);
 
-    
-
-    if (error) {
-      console.log(error.message);
-      
-      toast.error("Registration failed")
-    }
+  
     
     
   }
