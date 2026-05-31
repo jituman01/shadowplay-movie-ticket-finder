@@ -1,34 +1,12 @@
 @import "tailwindcss";
-@import "@heroui/styles"; 
-
+@import "@heroui/styles";
 
 @layer base {
   body {
     background-color: #030303;
-    background-image: radial-gradient(
-      circle at 50% -20%, 
-      rgba(156, 16, 44, 0.3) 0%, 
-      rgba(3, 3, 3, 1) 60%
-    );
-    background-attachment: fixed;
     color: white;
     min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
-  }
-}
-
-@layer utilities {
-  .cinematic-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    transition: all 0.4s ease;
-  }
-
-  .cinematic-card:hover {
-    border-color: rgba(239, 68, 68, 0.6); /* Red glow on hover */
-    box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
   }
 }

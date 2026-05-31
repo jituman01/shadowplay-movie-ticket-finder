@@ -1,7 +1,9 @@
+import { Button } from '@heroui/react';
+import Link from 'next/link';
 import React from 'react';
 
 const MovieCard = ({ movie }) => {
-  const { title, backdrop_path, release_date, genres, runtime, vote_average } =
+  const { id, title, backdrop_path, release_date, genres, runtime, vote_average } =
     movie;
 
   return (
@@ -22,9 +24,11 @@ const MovieCard = ({ movie }) => {
 
       {/* button and rating*/}
       <div className="flex justify-between items-center mt-4">
-        <button className="bg-red-700 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition-all cursor-pointer">
+        <Link href={`/movies/${id}`}>
+          <Button className="bg-red-700 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition-all cursor-pointer">
           Buy Ticket
-        </button>
+        </Button>
+        </Link>
         <div className="flex items-center ">
           <span className="text-[12px]">
             <span className="text-yellow-400 mr-1">★</span>
