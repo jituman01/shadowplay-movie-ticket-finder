@@ -1,8 +1,36 @@
+'use client'
 import React from 'react';
 import { Button } from '@heroui/react';
 import { FcGoogle } from 'react-icons/fc';
+import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
+
+  const handleLogin = async (e) => {
+      e.preventDefault();
+      // console.log(e.currentTarget);
+      
+      const formData = new FormData(e.currentTarget);
+      // console.log(formData);
+  
+      const loginData = Object.fromEntries(formData.entries())
+      // console.log(loginData);
+  
+      const { data, error } = await authClient.signIn.email({
+        ...loginData,
+        callbackURL: '/'
+        
+      })
+      
+      if (error) {
+        // console.log(error.message);
+        
+        toast.error('Login Failed')
+        return;
+      }
+  
+    }
   return (
     <div className="pt-25 min-h-screen bg-transparent text-white flex justify-center items-center px-6">
       <div className="w-full max-w-md bg-transparent p-8 rounded-2xl shadow-2xl border border-gray-800">
@@ -13,7 +41,9 @@ const LoginPage = () => {
         </div>
 
         {/* form*/}
-        <form className="space-y-6">
+        <form
+        onSubmit={handleLogin}
+          className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">
               Email Address
@@ -21,7 +51,8 @@ const LoginPage = () => {
             <input
               type="email"
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500 transition"
-              placeholder="example@mail.com"
+              placeholder="Enter your email"
+              name="email"
             />
           </div>
 
@@ -32,7 +63,8 @@ const LoginPage = () => {
             <input
               type="password"
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500 transition"
-              placeholder="••••••••"
+              placeholder="Enter your password"
+              name="password"
             />
           </div>
 
@@ -49,8 +81,10 @@ const LoginPage = () => {
             </a>
           </div>
 
-          <Button className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition cursor-pointer">
-            Sign In
+          <Button
+            type="submit"
+            className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition cursor-pointer">
+             Login
           </Button>
         </form>
         <div className="flex items-center my-6">

@@ -6,7 +6,7 @@ const NowStreaming = async () => {
   const movies = await nowStreaming();
 
   return (
-    <section className="px-5 py-10 bg-black text-white max-w-7xl mx-auto">
+    <section className="px-5 py-10 bg-transparent text-white max-w-7xl mx-auto">
       {/* header*/}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold">Now Streaming</h2>
