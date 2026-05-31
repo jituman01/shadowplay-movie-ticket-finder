@@ -1,12 +1,14 @@
 import Hero from "@/components/Hero";
 import NowStreaming from "@/components/NowStreaming";
+import TrailerSection from "@/components/TrailerSection";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
       <Hero/>
-      <NowStreaming/>
+      <NowStreaming />
+      <TrailerSection/>
    </div>
   );
 }

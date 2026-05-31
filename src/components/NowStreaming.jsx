@@ -1,6 +1,7 @@
 import { nowStreaming } from '@/lib/movies/data';
 import React from 'react';
 import MovieCard from './MovieCard';
+import Link from 'next/link';
 
 const NowStreaming = async () => {
   const movies = await nowStreaming();
@@ -10,7 +11,7 @@ const NowStreaming = async () => {
       {/* header*/}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold">Now Streaming</h2>
-        <a href="/movies" className="text-red-500 hover:text-red-400">View All →</a>
+        <Link href="/movies" className="text-red-500 hover:text-red-400">View All →</Link>
       </div>
 
       {/* layout*/}
@@ -23,6 +24,15 @@ const NowStreaming = async () => {
           <p>No movies available at the moment.</p>
         )}
       </div>
+      <div className="mt-8 flex justify-center">
+          <Link
+            href={'/movies'}
+            
+            className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-all duration-300"
+          >
+            See More
+          </Link>
+        </div>
     </section>
   );
 };
