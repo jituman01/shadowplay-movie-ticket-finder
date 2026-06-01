@@ -1,4 +1,5 @@
 import DateSelector from '@/components/DateSelector';
+import FavoriteButton from '@/components/FavoriteButton';
 import SuggestsMovie from '@/components/SuggestsMovie';
 import { Button } from '@heroui/react';
 import React from 'react';
@@ -12,9 +13,12 @@ const fetchSingleMovie = async (id) => {
   
 }
 
+
+
 const DetailsPage = async ({ params }) => {
   const { id } = await params;
   const movie = await fetchSingleMovie(id);
+  
 
   return (
     
@@ -76,13 +80,18 @@ const DetailsPage = async ({ params }) => {
           Buy Tickets
         </Button>
 
-        <button className="p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition">
-          <HiOutlineHeart size={24} />
-        </button>
+        <div className="">
+          <FavoriteButton movieId={movie.id}/>
+        </div>
       </div>
     </div>
 
-  </div>
+      </div>
+       {/* date section */}
+      <div className='pt-20'>
+
+      <DateSelector/>
+      </div>
 
       {/* Cast Section */}
 <div className="mt-16">
@@ -103,11 +112,7 @@ const DetailsPage = async ({ params }) => {
 </div>
 
       
-      {/* date section */}
-      <div className='pt-20'>
-
-      <DateSelector/>
-      </div>
+     
 
       {/* suggests movie section */}
       <div className='pt-10'>

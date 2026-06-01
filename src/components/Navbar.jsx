@@ -41,6 +41,7 @@ const Navbar = () => {
         <Link href="/movies" className="hover:text-red-500 transition">Movies</Link>
         <Link href="/theatres" className="hover:text-red-500 transition">Theatres</Link>
         <Link href="/releases" className="hover:text-red-500 transition">Releases</Link>
+        <Link href="/favorites" className="hover:text-red-500 transition">Favorites</Link>
       </div>
 
       <div className="hidden md:flex items-center gap-6">
