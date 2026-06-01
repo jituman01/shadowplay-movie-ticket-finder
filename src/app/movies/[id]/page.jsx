@@ -1,3 +1,5 @@
+import DateSelector from '@/components/DateSelector';
+import SuggestsMovie from '@/components/SuggestsMovie';
 import { Button } from '@heroui/react';
 import React from 'react';
 import { HiOutlinePlay, HiOutlineHeart } from "react-icons/hi";
@@ -99,6 +101,24 @@ const DetailsPage = async ({ params }) => {
     ))}
   </div>
 </div>
+
+      
+      {/* date section */}
+      <div className='pt-20'>
+
+      <DateSelector/>
+      </div>
+
+      {/* suggests movie section */}
+      <div className='pt-10'>
+        <SuggestsMovie/>
+      </div>
+
+
+
+
+
+
 </div>
   );
 };
