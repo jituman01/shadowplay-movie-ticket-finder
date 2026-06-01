@@ -5,6 +5,7 @@ import { LogOut, Search, Menu, X } from 'lucide-react';
 import { signOut, useSession } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { Avatar, Button } from '@heroui/react';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +19,22 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 flex items-center justify-between px-10 py-6 text-white">
-      <Link href="/" className="text-2xl font-bold tracking-tight">
-        <span className="text-red-500 text-3xl">S</span>hadowPlay
-      </Link>
+      <div className="flex items-center">
+  <Link href="/" className="flex items-center">
+    <Image
+      src="/assets/shadowplay-logo.png"
+      alt="ShadowPlay Logo"
+      width={100}
+      height={30}
+      priority
+      className="h-10 w-auto"
+    />
+
+    <span className="text-2xl font-bold tracking-tight text-white">
+      hadowPlay
+    </span>
+  </Link>
+</div>
 
       <div className="hidden md:flex items-center gap-8 bg-white/10 backdrop-blur-md px-8 py-3 rounded-full border border-white/10">
         <Link href="/" className="hover:text-red-500 transition">Home</Link>

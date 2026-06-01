@@ -81,6 +81,24 @@ const DetailsPage = async ({ params }) => {
     </div>
 
   </div>
+
+      {/* Cast Section */}
+<div className="mt-16">
+  <h2 className="text-2xl font-bold mb-6 border-l-4 border-red-500 pl-4">Your Favorite Cast</h2>
+  
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-2">
+    {movie.casts && movie.casts.map((cast, index) => (
+      <div key={index} className="flex flex-col items-center text-center">
+        <img
+          src={cast.profile_path}
+          alt={cast.name}
+          className="w-20 h-20 rounded-full object-cover mb-3 border border-rose-700"
+        />
+        <p className="font-semibold text-sm">{cast.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
 </div>
   );
 };
